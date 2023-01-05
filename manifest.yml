@@ -1,0 +1,8 @@
+---
+applications:
+- name: cf-nodejs-demoapp
+  memory: 100M
+  instances: 1
+  random-route: false
+  host: cf-nodejs-i350068
+  domain: cfapps.us10-001.hana.ondemand.com
