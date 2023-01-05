@@ -1,0 +1,65 @@
+pipeline {
+
+    agent any
+
+    stages {
+
+        stage('Checkout') {
+
+            steps {
+
+                deleteDir()
+
+                checkout scm
+
+            }
+
+        }
+
+        stage('Test') {
+
+            steps {
+
+                sh 'npm install'
+
+            }
+
+        }
+
+        // stage('Configuration'){
+
+        //     steps{
+
+        //         sh '''
+
+        //             cds add hana,mta,xsuaa,approuter --for production
+
+        //             npm update --package-lock-only
+
+        //         '''
+
+        //     }
+
+        // }
+
+        // stage('Build and Deploy'){
+
+        //     steps{
+
+        //          withCredentials([usernamePassword(credentialsId: 'cf_cred', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
+
+        //             sh 'cf login -a https://api.cf.us10-001.hana.ondemand.com -u $USERNAME -p $PASSWORD'
+
+        //         }
+
+        //         sh 'cf target -s Dev'
+
+        //         sh 'cf push'
+
+        //     }
+
+        // }
+
+    }
+
+}
